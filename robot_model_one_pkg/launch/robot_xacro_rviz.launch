@@ -1,0 +1,14 @@
+<launch>
+    <!-- Le fichier launch qui charge la description du robot et les capteurs -->
+    <include file="$(find robot_model_one_pkg)/launch/robot_xacro_gazebo.launch" />
+
+    <!-- Lancement de RViz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_model_one_pkg)/rviz/robot_config.rviz" />
+
+    <!-- Remap les topics si nécessaire -->
+    <remap from="rgb/image_raw" to="rgb/image_raw" />
+    <remap from="/scan" to="/scan" />
+    <remap from="/odom" to="/odom" />
+    <remap from="/cmd_vel" to="/cmd_vel" />
+    <remap from="/joint_states" to="/joint_states" />
+</launch>
